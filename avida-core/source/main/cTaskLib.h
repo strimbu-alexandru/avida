@@ -203,6 +203,7 @@ private:
   double Task_Math1in_AO(cTaskContext& ctx) const;
   double Task_Math1in_AP(cTaskContext& ctx) const;
   double Task_Math1in_AS(cTaskContext& ctx) const;
+  double Task_Times2(cTaskContext& ctx) const;
 
   // Arbitrary 2-Input Math Tasks
   double Task_Math2in_AA(cTaskContext& ctx) const;

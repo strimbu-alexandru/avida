@@ -205,6 +205,7 @@ cTaskEntry* cTaskLib::AddTask(const cString& name, const cString& info, cEnvReqs
   else if (name == "math_1AO") NewTask(name, "Math 1AO (X-6)", &cTaskLib::Task_Math1in_AO);  
   else if (name == "math_1AP") NewTask(name, "Math 1AP (X-7)", &cTaskLib::Task_Math1in_AP);
   else if (name == "math_1AS") NewTask(name, "Math 1AS (3Y)", &cTaskLib::Task_Math1in_AS);
+  else if (name == "times2") NewTask(name, "Times2", &cTaskLib::Task_Times2);
   
   // Arbitrary 2-Input Math Tasks
   if (name == "math_2AA") NewTask(name, "Math 2AA (sqrt(X+Y))", &cTaskLib::Task_Math2in_AA);  
@@ -1321,6 +1322,21 @@ double cTaskLib::Task_Math1in_AS(cTaskContext& ctx) const //3Y
     if (test_output == input_buffer[i] * 3) return 1.0;
   }
   return 0.0;
+}
+
+double cTaskLib::Task_Times2(cTaskContext& ctx) const
+{
+	const tBuffer<int>& input_buffer = ctx.GetInputBuffer();
+	const int test_output = ctx.GetOutputBuffer()[0];
+	const int input_size = ctx.GetInputBuffer().GetNumStored();
+	for (int i = 0; i < input_size ; i++)
+	{
+		if ( test_output == 2 * input_buffer[i])
+		{
+		  return 1.0;
+		}
+	}
+	return 0.0;
 }
 
 double cTaskLib::Task_Math2in_AA(cTaskContext& ctx) const //(sqrt(X+Y))

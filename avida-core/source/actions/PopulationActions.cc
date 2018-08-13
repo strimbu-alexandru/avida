@@ -105,7 +105,7 @@ public:
   {
     if (m_filename.GetSize() == 0) {
       cerr << "error: no organism file specified" << endl;
-      m_world->GetDriver().Abort(AbortCondition::IO_ERROR);
+      //m_world->GetDriver().Abort(AbortCondition::IO_ERROR);
     }
     GenomePtr genome;
     cUserFeedback feedback;
@@ -115,7 +115,7 @@ public:
         case cUserFeedback::UF_ERROR:    
           cerr << "error: "; 
           cerr << feedback.GetMessage(i) << endl;
-          m_world->GetDriver().Abort(AbortCondition::GENERIC_ERROR);
+          //m_world->GetDriver().Abort(AbortCondition::GENERIC_ERROR);
           break;
         case cUserFeedback::UF_WARNING:  
           cerr << "warning: ";
